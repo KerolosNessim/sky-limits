@@ -14,8 +14,8 @@ const changa = Changa({
 });
 
 export const metadata: Metadata = {
-  title: "Brands e-commerce",
-  description: "Brands e-commerce created by subcode",
+  title: "Sky Limits",
+  description: "Sky Limits e-commerce created by subcode",
 };
 type Props = {
   children: React.ReactNode;
