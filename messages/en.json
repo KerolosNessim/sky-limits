@@ -1,0 +1,21 @@
+{
+  "navLinks": {
+    "home": "Home",
+    "about": "About",
+    "brands": "Brands",
+    "strategic": "Strategic",
+    "franchise": "Franchise"
+  },
+  "authLinks": {
+    "login": "Login",
+    "register": "Sign up",
+    "or": "or"
+  },
+  "hero": {
+    "badge": "Hero Section",
+    "title": "Your Growth Has No Limits",
+    "description": "Sky Limits is a premier investment holding company dedicated to nurturing high-potential brands across diverse industries through strategic capital and operational excellence.",
+    "viewPortfolio": "View Portfolio",
+    "ourMission": "Our mission"
+  }
+}
