@@ -5,11 +5,12 @@ import { Button } from "../ui/button";
 import { HiArrowNarrowRight } from "react-icons/hi";
 import { useTranslations } from "next-intl";
 import * as motion from "motion/react-client";
+import CustomLink from "../shared/custom-link";
 const HeroSection = () => {
   const t = useTranslations("hero");
 
   return (
-    <section className="relative h-screen w-full overflow-hidden pt-18 flex items-center justify-center">
+    <section className="relative h-screen w-full overflow-hidden lg:pt-18 flex items-center justify-center">
       {/* anmated bg */}
       <InteractiveGridPattern />
       {/* content */}
@@ -23,16 +24,13 @@ const HeroSection = () => {
           className="lg:w-1/2 w-full flex flex-col gap-4 z-1 max-lg:items-center max-lg:text-center "
         >
           <CustomBadage text={t("badge")} />
-          <h1 className="lg:text-h1 text-h2 ">{t("title")}</h1>
+          <h1 className="lg:text-h1 text-h2 text-gradient">{t("title")}</h1>
           <p className="lg:text-2xl text-lg">{t("description")}</p>
           <div className="flex items-center gap-4">
-            <Button className=" text-base cursor-pointer">
+            <Button className="h-10 text-base cursor-pointer">
               {t("viewPortfolio")}
             </Button>
-            <Button className=" text-base cursor-pointer bg-transparent text-primary border-b-2 border-primary rounded-none hover:text-white hover:bg-primary">
-              {t("ourMission")}{" "}
-              <HiArrowNarrowRight className="rtl:rotate-180" />
-            </Button>
+            <CustomLink href="/" text={t("ourMission")} />
           </div>
         </motion.div>
         {/* image */}

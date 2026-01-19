@@ -12,10 +12,54 @@
     "or": "or"
   },
   "hero": {
-    "badge": "Hero Section",
+    "badge": "Start Here",
     "title": "Your Growth Has No Limits",
     "description": "Sky Limits is a premier investment holding company dedicated to nurturing high-potential brands across diverse industries through strategic capital and operational excellence.",
     "viewPortfolio": "View Portfolio",
     "ourMission": "Our mission"
-  }
+  },
+  "goalSection": {
+    "title": "The Foundation",
+    "description": "Our Goal",
+    "description2": "Sky Limits is a forward-thinking holding company dedicated to developing and expanding a diverse portfolio of brands.",
+    "learnMore": "Learn More"
+  },
+  "brandsSection": {
+    "title": "Brands",
+    "description": "Building and Managing Brands That Lead Their Markets",
+    "seeAll": "See All",
+    "card": {
+      "badge": "Food & Beverage",
+      "title": "GreenLeaf Foods",
+      "description": "GreenLeaf Foods is a fast-casual dining brand focused on delivering high-quality, sustainable food experiences at scale.",
+      "link": "Brand Details"
+    }
+  },
+  "projectSection": {
+    "title": "Our Feature Projects",
+    "description": "A glimpse into the projects and ideas we’re working on",
+    "card": {
+      "badge": "Coming Soon",
+      "title": "Project Expansion",
+      "description": "Scaling our services to reach new markets."
+    }
+  },
+  "franchise": {
+      "title": "Franchise",
+      "description": "Invest in a Winning Franchise",
+      "description2": "Our franchise program is built on a proven business model designed to help partners launch and grow with confidence. We provide comprehensive training, clear operational systems, and ongoing support to ensure consistency and quality across all locations. As a franchise partner, you benefit from our brand strength, marketing expertise, and continuous guidance to help you build a sustainable and profitable business.",
+      "cta": "Become a Franchise"
+    },
+    "strategic": {
+      "title": "Our Strategic Goals",
+      "description": "Driving Long-Term Strategic Growth",
+      "card": {
+        "title": "Sustainable Growth",
+        "description": "We focus on building scalable business models that support consistent, long-term growth while maintaining operational efficiency and financial stability across all brands"
+      }
+    },
+    "team": {
+      "title": "Our Team",
+      "description": "Meet the People Behind Our Brand"
+    }
 }

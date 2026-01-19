@@ -30,7 +30,7 @@ export default async function RootLayout({ children, params }: Props) {
   return (
     <html lang={locale} >
       <NextIntlClientProvider locale={locale}>
-        <body dir={locale === "ar" ? "rtl" : "ltr"} className={`${changa.className} antialiased`}>
+        <body dir={locale === "ar" ? "rtl" : "ltr"} className={`${changa.className} antialiased text-text`}>
           <Navbar />
           {children}
           <FloatingSocials />
