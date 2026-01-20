@@ -59,7 +59,7 @@ const Footer = () => {
         {/* logo and socials */}
         <div className="flex flex-col gap-4 lg:basis-80   max-lg:basis-full max-lg:items-center">
           <Image
-            src="/logo.png"
+            src="/sky-limits-logo.png"
             alt="logo"
             width={100}
             height={100}
