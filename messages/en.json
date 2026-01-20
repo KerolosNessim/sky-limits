@@ -45,21 +45,93 @@
     }
   },
   "franchise": {
-      "title": "Franchise",
-      "description": "Invest in a Winning Franchise",
-      "description2": "Our franchise program is built on a proven business model designed to help partners launch and grow with confidence. We provide comprehensive training, clear operational systems, and ongoing support to ensure consistency and quality across all locations. As a franchise partner, you benefit from our brand strength, marketing expertise, and continuous guidance to help you build a sustainable and profitable business.",
-      "cta": "Become a Franchise"
-    },
-    "strategic": {
-      "title": "Our Strategic Goals",
-      "description": "Driving Long-Term Strategic Growth",
-      "card": {
-        "title": "Sustainable Growth",
-        "description": "We focus on building scalable business models that support consistent, long-term growth while maintaining operational efficiency and financial stability across all brands"
+    "title": "Franchise",
+    "description": "Invest in a Winning Franchise",
+    "description2": "Our franchise program is built on a proven business model designed to help partners launch and grow with confidence. We provide comprehensive training, clear operational systems, and ongoing support to ensure consistency and quality across all locations. As a franchise partner, you benefit from our brand strength, marketing expertise, and continuous guidance to help you build a sustainable and profitable business.",
+    "cta": "Become a Franchise"
+  },
+  "strategic": {
+    "title": "Our Strategic Goals",
+    "description": "Driving Long-Term Strategic Growth",
+    "card": {
+      "title": "Sustainable Growth",
+      "description": "We focus on building scalable business models that support consistent, long-term growth while maintaining operational efficiency and financial stability across all brands"
+    }
+  },
+  "team": {
+    "title": "Our Team",
+    "description": "Meet the People Behind Our Brand"
+  },
+  "faqs": {
+    "title": "Frequently Asked Questions",
+    "description": "Clear answers to common questions about our company, investments, and partnerships.",
+    "faqs": [
+      {
+        "question": "What does Sky Limits do?",
+        "answer": "Sky Limits is a multi-brand company focused on building, managing, and scaling innovative brands across different industries, with a strong emphasis on growth, quality, and long-term value creation."
+      },
+      {
+        "question": "What industries do your brands operate in?",
+        "answer": "Our brands operate across diverse sectors, including food & beverage, retail, services, and other growth-driven industries."
+      },
+      {
+        "question": "Do you offer investment or partnership opportunities?",
+        "answer": "Yes, Sky Limits is open to strategic investment and partnership opportunities that align with our vision, values, and long-term growth objectives."
+      },
+      {
+        "question": "Is franchising available for your brands?",
+        "answer": "Franchising opportunities are available for selected brands. Availability depends on the brand, market, and strategic fit to ensure consistent quality and success."
       }
-    },
-    "team": {
-      "title": "Our Team",
-      "description": "Meet the People Behind Our Brand"
+    ]
+  },
+  "contactBox": {
+    "description": "We're here to help turn your ideas into reality. Get in touch and let's take the next step together.",
+    "cta": "Contact Us"
+  },
+   "footer": {
+      "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam",
+      "sections": {
+        "product": {
+          "title": "Product",
+          "links": [
+            "Features",
+            "Pricing",
+            "Case studies",
+            "Reviews",
+            "Updates"
+          ]
+        },
+        "company": {
+          "title": "Company",
+          "links": [
+            "About",
+            "Contact us",
+            "Careers",
+            "Culture",
+            "Blog"
+          ]
+        },
+        "support": {
+          "title": "Support",
+          "links": [
+            "Getting started",
+            "Help center",
+            "Server status",
+            "Report a bug",
+            "Chat support"
+          ]
+        },
+        "contact": {
+          "title": "Contact us",
+          "email": "contact@company.com",
+          "phone": "(414) 687 - 5892",
+          "address": "794 McAllister St, San Francisco, 94102"
+        }
+      },
+      "copyright": "All Rights Reserved",
+      "legal": {
+        "terms": "Terms and Conditions",
+        "privacy": "Privacy Policy"
+      }
     }
 }

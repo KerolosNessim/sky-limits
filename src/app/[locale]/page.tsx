@@ -5,6 +5,8 @@ import ProjectSection from "@/components/home/project-section";
 import FranchiseSection from "@/components/home/franchise-section";
 import StrategicSection from "@/components/home/strategic-section";
 import TeamSection from "@/components/home/team-section";
+import Faqs from "@/components/home/faqs";
+import ContactBox from "@/components/home/contact-box";
 export default function Home() {
   return (
     <div>
@@ -15,6 +17,8 @@ export default function Home() {
       <FranchiseSection />
       <StrategicSection />
       <TeamSection />
+      <Faqs/>
+      <ContactBox/>
     </div>
   );
 }
