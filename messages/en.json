@@ -133,5 +133,69 @@
         "terms": "Terms and Conditions",
         "privacy": "Privacy Policy"
       }
+    },
+    "about": {
+      "badge": "Who’s Us",
+      "title": "A strategic holding company building and scaling brands across multiple industries.",
+      "description": "A strategic holding company building and scaling brands across multiple industries.",
+      "learnMore": "Our Offers",
+      "goals":{
+        "title":"The Foundation",
+        "description":"our role goes beyond ownership.",
+        "description2":"Sky Limits is a holding company dedicated to developing and growing high-potential brands across multiple sectors. Through strategic leadership and scalable business models, we enable sustainable growth and long-term value creation.",
+        "learnMore": "Our Vision",
+        "card":{
+          "title":"Mission",
+          "description":"To empower our brands with clear strategy, efficient operations, and long-term investment."
+        }
+      },
+      "statistics":{
+        "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim  veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "marketing":"Marketing & Business Growth",
+        "innovation":"Creativity & Innovation",
+        "business":"Business & Financial Management",
+        "link":"About Us"
+      }
+    },
+    "brands":{
+      "badge":"Brands"
+    },
+        "strategicPage":{
+      "badge":"Vision",
+      "title":"A strategic holding company building and scaling brands across multiple industries.",
+      "description":"A strategic holding company building and scaling brands across multiple industries.",
+      "link":"Contact Us",
+      "goals":{
+        "title":"Our Goals",
+        "description":"Driven by clear goals, guided by a strong strategy, and focused on building brands that grow sustainably and deliver consistent quality at every touchpoint."
+      },
+      "card":{
+        "title":"Operational Excellence",
+        "description":"Standardize operations across all brands to improve efficiency, reduce waste, and ensure reliable execution across every branch and team."
+      }
+    },
+    "franchisePage":{
+      "badge":"Franchise",
+      "title":"Invest in a Winning Franchise",
+      "description":"Our franchise program is built on a proven business model designed to help partners launch and grow with confidence. We provide comprehensive training, clear operational systems, and ongoing support to ensure consistency and quality across all locations. As a franchise partner, you benefit from our brand strength, marketing expertise, and continuous guidance to help you build a sustainable and profitable business.",
+      "link":"Apply Now",
+"whyFranchise":"Why Franchise With Us",
+"whyFranchiseCard":"Proven operating model and standardized procedures",
+      "requirements":{
+        "title":"Requirements to Apply",
+        "description":"To ensure mutual success, franchise applicants should meet the following criteria",
+        "list":[
+          "Strong business mindset and hands-on leadership",
+          "Financial capability to cover the initial investment",
+          "Ability to follow brand standards and operating procedures",
+          "Suitable location proposal",
+          "Alignment with our company values and long-term vision"
+        ]
+      },
+      "card":{
+        "title":"Operational Excellence",
+        "description":"Standardize operations across all brands to improve efficiency, reduce waste, and ensure reliable execution across every branch and team."
+      }
     }
+
 }

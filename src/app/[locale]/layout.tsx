@@ -7,6 +7,7 @@ import { routing } from "@/i18n/routing";
 import Navbar from "@/components/shared/navbar";
 import FloatingSocials from "@/components/shared/floating-social";
 import Footer from "@/components/shared/footer";
+import ContactBox from "@/components/home/contact-box";
 const changa = Changa({
   subsets: ["latin"],
   weight: ["200", "300", "400", "500", "600", "700", "800"],
@@ -35,6 +36,7 @@ export default async function RootLayout({ children, params }: Props) {
           <Navbar />
           {children}
           <FloatingSocials />
+          <ContactBox/>
           <Footer />
           </body>
       </NextIntlClientProvider>

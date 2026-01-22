@@ -1,11 +1,10 @@
 import { InteractiveGridPattern } from "@/components/ui/interactive-grid-pattern";
+import * as motion from "motion/react-client";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import CustomBadage from "../shared/custom-badage";
-import { Button } from "../ui/button";
-import { HiArrowNarrowRight } from "react-icons/hi";
-import { useTranslations } from "next-intl";
-import * as motion from "motion/react-client";
 import CustomLink from "../shared/custom-link";
+import { Button } from "../ui/button";
 const HeroSection = () => {
   const t = useTranslations("hero");
 

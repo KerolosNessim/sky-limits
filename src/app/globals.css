@@ -184,7 +184,10 @@
   --color-primary-dark-active: #222f46;
   --color-primary-darker: #1a2537;
 
-  /* Gradient */
+
+  /* form */
+  --color-input-bg: #f3f4f6;
+
   
 
   /* ====== Screens' sizes like bootstrap ====== */
