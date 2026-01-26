@@ -6,7 +6,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { usePathname, useRouter } from "next/navigation";
 import { useTransition } from "react";
 import ReactCountryFlag from "react-country-flag";
@@ -14,6 +14,7 @@ import ReactCountryFlag from "react-country-flag";
 const LocaleSwitcher = () => {
   const router = useRouter();
   const pathname = usePathname();
+  const t = useTranslations("locale");
   const locale = useLocale();
   const [isPending, startTransition] = useTransition();
 
@@ -45,21 +46,21 @@ const LocaleSwitcher = () => {
         </svg>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="text-primary text-base!">
-        <DropdownMenuItem onClick={() => toggleLocale("en")}>
+        <DropdownMenuItem dir={locale === "en" ? "ltr" : "rtl"} onClick={() => toggleLocale("en")}>
           <ReactCountryFlag
             countryCode="US"
             svg
             className=" rounded-full object-cover"
           />
-          English
+          {t("en")}
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => toggleLocale("ar")}>
+        <DropdownMenuItem dir={locale === "en" ? "ltr" : "rtl"} onClick={() => toggleLocale("ar")}>
           <ReactCountryFlag
             countryCode="SA"
             svg
             className="rounded-full object-cover"
           />
-          Arabic
+          {t("ar")}
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

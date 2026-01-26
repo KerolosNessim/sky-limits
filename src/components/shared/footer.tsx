@@ -174,14 +174,14 @@ const Footer = () => {
           <p className="text-body-sm">{t("copyright")}</p>
           <p className="max-md:hidden">|</p>
             <Link
-              href="/"
+              href="/terms"
               className="text-body-sm text-secondary hover:text-primary-light transition-colors"
             >
               {t("legal.terms")}
           </Link>
           <p className="max-md:hidden">|</p>
             <Link
-              href="/"
+              href="/terms"
               className="text-body-sm text-secondary hover:text-primary-light transition-colors"
             >
               {t("legal.privacy")}

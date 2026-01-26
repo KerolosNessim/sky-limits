@@ -1,21 +1,16 @@
-import MissonSection from "@/components/about/misson-section";
 import ContactBox from "@/components/home/contact-box";
 import GoalSlider from "@/components/home/goal-slider";
-import TeamSection from "@/components/home/team-section";
 import CustomBadage from "@/components/shared/custom-badage";
 import CustomLink from "@/components/shared/custom-link";
-import CustomProgress from "@/components/shared/custom-progress";
 import Footer from "@/components/shared/footer";
+import Gallery from "@/components/shared/gallery";
 import Navbar from "@/components/shared/navbar";
-import { Button } from "@/components/ui/button";
 import { InteractiveGridPattern } from "@/components/ui/interactive-grid-pattern";
 import * as motion from "motion/react-client";
 import { useTranslations } from "next-intl";
-import Image from "next/image";
-import { FaArrowRightLong } from "react-icons/fa6";
-const AboutPage = () => {
-  const t = useTranslations("about");
 
+const BrandDetailsPage = () => {
+  const t = useTranslations("singleBrand");
   return (
     <>
       <Navbar />
@@ -47,53 +42,55 @@ const AboutPage = () => {
               transition={{ duration: 1, delay: 1 }}
               viewport={{ once: true }}
             >
-              <GoalSlider />
+              <GoalSlider isBrand />
             </motion.div>
           </div>
         </section>
-        {/* goals */}
-        <section className="bg-primary/20 py-16">
-          <MissonSection />
-        </section>
-        {/* team */}
-        <TeamSection />
-        {/* statisics */}
-        <motion.section
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-          className=" py-16"
-        >
-          <div className="container lg:flex justify-between ">
-            <div className="w-[38%] max-lg:hidden">
-              <Image
-                src={"/statistics.png"}
-                alt="statistics"
-                width={200}
-                height={200}
-                className="w-full"
-              />
-            </div>
-            <div className="lg:w-[60%] flex flex-col  gap-10">
-              <p className="text-h5 text-natural-darker">
-                {t("statistics.description")}
-              </p>
-              <div className="flex flex-col gap-8">
-                <CustomProgress number={85} title={t("statistics.marketing")} />
-                <CustomProgress
-                  number={70}
-                  title={t("statistics.innovation")}
-                />
-                <CustomProgress number={90} title={t("statistics.business")} />
-              </div>
-              <Button className="w-fit h-14 rounded-full text-body-md px-8! text-white">
-                {t("statistics.link")}
-                <FaArrowRightLong />
-              </Button>
+        {/* why people choose */}
+        <section className="py-16">
+          <div className="container space-y-8">
+            <motion.h2
+              className="text-h3 text-center"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+              viewport={{ once: true }}
+            >
+              {t("why.title")}
+            </motion.h2>
+            {/* cards */}
+            <div className="flex flex-wrap gap-4">
+              {Array.from({ length: 5 }).map((_, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1, delay: index * 0.2 }}
+                  viewport={{ once: true }}
+                  className="lg:flex-[0_0_calc(33.333%-1rem)] lg:grow md:flex-[0_0_calc(50%-1rem)] md:grow flex-[0_0_calc(100%-1rem)] flex flex-col gap-4 p-6 border rounded-lg"
+                >
+                  <h3 className="text-h5">{t("why.card.title")}</h3>
+                  <p className="text-body-lg">{t("why.card.description")}</p>
+                </motion.div>
+              ))}
             </div>
           </div>
-        </motion.section>
+        </section>
+        {/* gallery */}
+        <section className="py-16">
+          <div className="container space-y-8">
+            <motion.h2
+              className="text-h3 text-center"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+              viewport={{ once: true }}
+            >
+              {t("gallery")}
+            </motion.h2>
+            <Gallery />
+          </div>
+        </section>
       </main>
       <ContactBox/>
       <Footer />
@@ -101,4 +98,4 @@ const AboutPage = () => {
   );
 };
 
-export default AboutPage;
+export default BrandDetailsPage;

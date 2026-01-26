@@ -1,8 +1,11 @@
+import ContactBox from "@/components/home/contact-box";
 import { ContactCard } from "@/components/home/contact-card";
 import FranchiseCard from "@/components/home/franchise-card";
 import { BecomeFranchiseForm } from "@/components/home/franchise-form";
 import CustomBadage from "@/components/shared/custom-badage";
 import CustomLink from "@/components/shared/custom-link";
+import Footer from "@/components/shared/footer";
+import Navbar from "@/components/shared/navbar";
 import { InteractiveGridPattern } from "@/components/ui/interactive-grid-pattern";
 import * as motion from "motion/react-client";
 import { useTranslations } from "next-intl";
@@ -10,6 +13,8 @@ const FranchisePage = () => {
   const t = useTranslations("franchisePage");
   const requirements = t.raw("requirements.list");
   return (
+    <>
+    <Navbar/>
     <main>
       {/* content */}
       <section className="relative h-screen w-full overflow-hidden  flex items-center justify-center">
@@ -120,6 +125,9 @@ const FranchisePage = () => {
         </div>
       </section>
     </main>
+    <ContactBox/>
+    <Footer/>
+    </>
   );
 };
 

@@ -1,4 +1,8 @@
 {
+  "locale": {
+    "en": "English",
+    "ar": "Arabic"
+  },
   "navLinks": {
     "home": "Home",
     "about": "About",
@@ -160,6 +164,20 @@
     "brands":{
       "badge":"Brands"
     },
+    "singleBrand":{
+      "badge":"HOYA",
+      "title":"Your daily coffee mood—crafted with care",
+      "description":"Hwaya Café is a modern neighborhood café where quality coffee meets a warm, feel‑good experience. From the first sip to the last detail, we focus on consistency, comfort, and a space you’ll want to come back to",
+      "learnMore":"Brand Profile",
+      "why":{
+        "title":"Why People Choose Hwaya",
+        "card":{
+          "title":"Consistent taste",
+          "description":"Standard recipes and careful preparation in every cup"
+        }
+      },
+      "gallery":"Gallery"
+    },
         "strategicPage":{
       "badge":"Vision",
       "title":"A strategic holding company building and scaling brands across multiple industries.",
@@ -196,6 +214,52 @@
         "title":"Operational Excellence",
         "description":"Standardize operations across all brands to improve efficiency, reduce waste, and ensure reliable execution across every branch and team."
       }
-    }
+    },
+    "terms":{
+      "title":"Privacy Policy",
+      "description":"At Corporate House of Brands, we value your trust. This policy outlines how we handle your personal information across our entire portfolio of brands.",
+      "content":[
+        {
+          "title":"1. Overview",
+          "description":"Corporate House of Brands ('we,' 'us,' or 'our') is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and share information across our diverse portfolio of consumer and technology brands. Whether you're interacting with us through our digital platforms, physical locations, or customer service, we prioritize the security and confidentiality of your personal data.This policy applies to all users worldwide and covers all aspects of our business operations where personal information is processed."
+        }
+      ]
+    },
+    "auth":{
+      "title":"Welcome Back.<br/> Manage your brands <br/> with clarity.",
+      "description":"Access your unified dashboard to oversee performance across all portfolio companies in real-time."
+    },
+    "signIn": {
+      "title": "Sign In",
+      "registerTitle": "Sign up",
+      "subtitle": "Enter your credentials to access the hub",
+      "emailLabel": "Email",
+      "nameLabel": "Name",
+      "namePlaceholder": "Enter your name",
+      "emailPlaceholder": "name@example.com",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "rememberMe": "Remember me",
+      "forgotPassword": "Forgot Password?",
+      "submit": "Sign In",
+      "registerSubmit": "Sign Up",
+      "noAccount": "Don’t have an account?",
+      "haveAccount": "Already have an account?",
+      "signUp": "Sign Up",
+      "signIn": "Sign In",
+      "agree":"I agree to the ",
+      "terms":"Terms & Conditions",
+      "privacy":"Privacy Policy",
+      "and":"and",
+      
 
+      "errors": {
+        "nameRequired": "Name is required",
+        "emailRequired": "Email is required",
+        "emailInvalid": "Please enter a valid email address",
+        "passwordRequired": "Password is required",
+        "passwordMin": "Password must be at least {min} characters"
+      }
+    }
+  
 }

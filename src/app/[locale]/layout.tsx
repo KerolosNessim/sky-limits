@@ -1,13 +1,10 @@
-import type { Metadata } from "next";
-import { Changa } from "next/font/google";
-import "../globals.css";
-import { NextIntlClientProvider, hasLocale } from "next-intl";
-import { notFound } from "next/navigation";
-import { routing } from "@/i18n/routing";
-import Navbar from "@/components/shared/navbar";
 import FloatingSocials from "@/components/shared/floating-social";
-import Footer from "@/components/shared/footer";
-import ContactBox from "@/components/home/contact-box";
+import { routing } from "@/i18n/routing";
+import type { Metadata } from "next";
+import { NextIntlClientProvider, hasLocale } from "next-intl";
+import { Changa } from "next/font/google";
+import { notFound } from "next/navigation";
+import "../globals.css";
 const changa = Changa({
   subsets: ["latin"],
   weight: ["200", "300", "400", "500", "600", "700", "800"],
@@ -33,11 +30,8 @@ export default async function RootLayout({ children, params }: Props) {
     <html lang={locale} >
       <NextIntlClientProvider locale={locale}>
         <body dir={locale === "ar" ? "rtl" : "ltr"} className={`${changa.className} antialiased text-text`}>
-          <Navbar />
           {children}
           <FloatingSocials />
-          <ContactBox/>
-          <Footer />
           </body>
       </NextIntlClientProvider>
     </html>
