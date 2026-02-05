@@ -42,7 +42,7 @@ const BrandDetailsPage = () => {
               transition={{ duration: 1, delay: 1 }}
               viewport={{ once: true }}
             >
-              <GoalSlider isBrand />
+              <GoalSlider  />
             </motion.div>
           </div>
         </section>
