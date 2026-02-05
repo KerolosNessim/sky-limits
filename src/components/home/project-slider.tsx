@@ -12,8 +12,9 @@ import {
 } from "@/components/ui/carousel";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import ProjectCard from "./project-card";
+import { ProjectItem } from "@/types/home";
 
-const ProjectSlider = () => {
+const ProjectSlider = ({projects}:{projects:ProjectItem[]}) => {
   const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);
   const [count, setCount] = React.useState(0);
@@ -34,9 +35,9 @@ const ProjectSlider = () => {
     <div className="w-full">
       <Carousel setApi={setApi} className="w-full ">
         <CarouselContent>
-          {Array.from({ length: 5 }).map((_, index) => (
+          {projects?.map((project, index) => (
             <CarouselItem key={index} className="lg:basis-1/2 basis-[90%]">
-              <ProjectCard key={index} number={index + 1}/>
+              <ProjectCard project={project} key={index} number={index + 1}/>
             </CarouselItem>
           ))}
         </CarouselContent>

@@ -14,9 +14,9 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 
 type Props = {
-    isBrand?: boolean;
+  images?: string[];
 }
-export default function GoalSlider({isBrand = false}: Props) {
+export default function GoalSlider({images}: Props) {
   const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);
   const [count, setCount] = React.useState(0);
@@ -37,10 +37,10 @@ export default function GoalSlider({isBrand = false}: Props) {
     <div className="w-full">
       <Carousel setApi={setApi} className="w-full ">
         <CarouselContent>
-          {Array.from({ length: 5 }).map((_, index) => (
+          {images?.map((image, index) => (
             <CarouselItem key={index}>
               <Image
-                src={isBrand ? "/single-brand.png" : "/goal-slider.png"}
+                src={image}
                 alt="goal"
                 width={500}
                 height={500}

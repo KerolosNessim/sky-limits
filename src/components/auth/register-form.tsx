@@ -11,12 +11,15 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Building2 } from "lucide-react";
-import { Link } from "@/i18n/navigation";
+import { Building2, Loader2 } from "lucide-react";
+import { Link, useRouter } from "@/i18n/navigation";
+import { signUp } from "@/api/auth";
+import { toast } from "sonner";
 
 const MIN_PASSWORD = 6;
 
 export default function RegisterForm() {
+  const router = useRouter();
   const inputClassName =
     "h-11 bg-input-bg focus-visible:ring-primary/50 border-0";
   const t = useTranslations("signIn");
@@ -43,14 +46,26 @@ export default function RegisterForm() {
     defaultValues: { name: "", email: "", password: "", agree: false },
   });
 
-  const onSubmit = (values: FormValues) => {
-    console.log(values);
+  const onSubmit = async (values: FormValues) => {
+    const data = {
+      name: values.name,
+      email: values.email,
+      password: values.password,
+    };
+
+    const res = await signUp(data);
+    if (res.status === true) {
+      toast.success(res.message);
+      router.push(`/verify-otp?email=${values.email}`);
+    } else {
+      toast.error(res.message);
+    }
   };
 
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
     watch,
     setValue,
   } = form;
@@ -133,24 +148,22 @@ export default function RegisterForm() {
                   checked={watch("agree")}
                   onCheckedChange={(v) => setValue("agree", Boolean(v))}
                 />
-                <span>{t("agree")} 
+                <span>
+                  {t("agree")}
                   <Link href="/terms" className="text-primary hover:underline">
                     {t("terms")}
-                  </Link>
-                  {" "}
-                  {t("and")}
-                  {" "}
+                  </Link>{" "}
+                  {t("and")}{" "}
                   <Link href="/terms" className="text-primary hover:underline">
                     {t("privacy")}
                   </Link>
                 </span>
               </label>
-
             </div>
 
             {/* Submit */}
-            <Button type="submit" className="h-11 w-full rounded-xl">
-              {t("registerSubmit")}
+            <Button disabled={isSubmitting} type="submit" className="h-11 w-full rounded-xl">
+              {isSubmitting ? <Loader2 className="animate-spin" /> : t("registerSubmit")}
             </Button>
 
             {/* Footer */}

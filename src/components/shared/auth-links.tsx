@@ -1,9 +1,19 @@
-import { Link } from '@/i18n/navigation'
-import { useTranslations } from 'next-intl';
+"use client";
+import { useUser } from "@/context/user";
+import { Link } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 
 const AuthLinks = () => {
+  const { user, logout } = useUser();
   const t = useTranslations("authLinks");
-  return (
+  return user ? (
+    <button
+      onClick={logout}
+      className="border border-primary bg-primary px-8 py-1.5 text-white rounded-md hover:bg-white hover:text-primary transition-all duration-300"
+    >
+      {t("logout")}
+    </button>
+  ) : (
     <div className="flex items-center xl:gap-4 text-body-lg xl:flex-row flex-col  gap-2">
       <Link
         href="/login"
@@ -20,6 +30,6 @@ const AuthLinks = () => {
       </Link>
     </div>
   );
-}
+};
 
-export default AuthLinks
+export default AuthLinks;

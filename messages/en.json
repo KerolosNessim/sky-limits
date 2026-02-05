@@ -13,7 +13,8 @@
   "authLinks": {
     "login": "Login",
     "register": "Sign up",
-    "or": "or"
+    "or": "or",
+    "logout": "Logout"
   },
   "hero": {
     "badge": "Start Here",
@@ -213,6 +214,61 @@
       "card":{
         "title":"Operational Excellence",
         "description":"Standardize operations across all brands to improve efficiency, reduce waste, and ensure reliable execution across every branch and team."
+      },
+      "form": {
+        "title": "Become a Franchise",
+        "brandName": {
+          "label": "Brand’s Name",
+          "placeholder": "Type your first name"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "Type your email"
+        },
+        "phone": {
+          "label": "Phone",
+          "placeholder": "00 000 0000"
+        },
+        "subject": {
+          "label": "Subject",
+          "placeholder": "Type your subject"
+        },
+        "industry": {
+          "label": "Industry",
+          "placeholder": "Select industry",
+          "options": {
+            "suggestion": "Suggestion",
+            "food_beverage": "Food & Beverage",
+            "retail": "Retail",
+            "beauty": "Beauty",
+            "education": "Education",
+            "services": "Services"
+          }
+        },
+        "message": {
+          "label": "How Can We Help?",
+          "placeholder": "Placeholder text"
+        },
+        "submit": "Request permit",
+        "submitting": "Submitting...",
+        "errors": {
+          "brandName": {
+            "min": "Brand’s Name must be at least 2 characters",
+            "max": "Brand’s Name is too long"
+          },
+          "email": "Please enter a valid email address",
+          "phone": {
+            "min": "Phone number is too short",
+            "max": "Phone number is too long",
+            "invalid": "Please enter a valid phone number"
+          },
+          "subject": "Subject is too long",
+          "industry": "Please select an industry",
+          "message": {
+            "min": "Please provide more details (at least 10 characters)",
+            "max": "Message is too long"
+          }
+        }
       }
     },
     "terms":{
@@ -259,6 +315,17 @@
         "emailInvalid": "Please enter a valid email address",
         "passwordRequired": "Password is required",
         "passwordMin": "Password must be at least {min} characters"
+      }
+    },
+    "otp":{
+      "title":"Verify Your Email",
+      "subtitle":"We've sent a 6-digit code to",
+      "dontHaveCode":"Didn't receive a code?",
+      "resend":"Resend Code",
+      "submit":"Verify Code",
+      "errors":{
+        "otpRequired":"Please enter a 6-digit code",
+        "otpInvalid":"Invalid OTP"
       }
     }
   

@@ -1,10 +1,9 @@
 "use client";
 
 import { AnimatePresence, motion } from "motion/react";
-import { useState } from "react";
+import React, { useState } from "react";
 import {
   FaPlus,
-  FaSnapchatGhost,
   FaTimes,
   FaWhatsapp,
   FaInstagram,
@@ -14,47 +13,76 @@ import {
 import { FaXTwitter } from "react-icons/fa6";
 import { Button } from "../ui/button";
 
-export default function FloatingSocials() {
+import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
+
+interface SocialMediaSettings {
+  sms?: string;
+  facebook?: string;
+  twitter?: string;
+  instagram?: string;
+  linkedin?: string;
+  tiktok?: string;
+  telegram?: string;
+}
+
+interface Props {
+  settings?: SocialMediaSettings;
+}
+
+export default function FloatingSocials({ settings }: Props) {
   const [open, setOpen] = useState(false);
+
+  if (!settings) return null;
 
   const socials = [
     {
       icon: FaWhatsapp,
-      link: "#",
+      link: settings.sms ? `https://wa.me/${settings.sms}` : undefined,
       label: "whatsapp",
       color: "text-green-500",
     },
     {
+      icon: FaFacebookF,
+      link: settings.facebook || undefined,
+      label: "facebook",
+      color: "text-blue-600",
+    },
+    {
       icon: FaXTwitter,
-      link: "#",
+      link: settings.twitter || undefined,
       label: "twitter",
       color: "text-black",
     },
     {
-      icon: FaSnapchatGhost,
-      link: "#",
-      label: "snapchat",
-      color: "text-yellow-500",
-    },
-    {
       icon: FaInstagram,
-      link: "#",
+      link: settings.instagram || undefined,
       label: "instagram",
       color: "text-pink-500",
     },
     {
+      icon: FaLinkedinIn,
+      link: settings.linkedin || undefined,
+      label: "linkedin",
+      color: "text-blue-700",
+    },
+    {
       icon: FaTelegramPlane,
-      link: "#",
+      link: settings.telegram || undefined,
       label: "telegram",
       color: "text-blue-500",
     },
     {
       icon: FaTiktok,
-      link: "#",
+      link: settings.tiktok || undefined,
       label: "tiktok",
       color: "text-black",
     },
-  ];
+  ].filter((s) => s.link) as {
+    icon: React.ElementType;
+    link: string; // link is guaranteed to be string because of filter(s => s.link)
+    label: string;
+    color: string;
+  }[];
 
   return (
     <motion.div

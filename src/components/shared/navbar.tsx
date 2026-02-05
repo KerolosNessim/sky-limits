@@ -8,6 +8,8 @@ import NavbarSheet from "./navbar-sheet";
 import { useLocale } from "next-intl";
 import { motion } from "motion/react";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import { getSettings } from "@/api/settings";
 const Navbar = () => {
   const t = useTranslations("navLinks");
   const locale = useLocale();
@@ -34,6 +36,19 @@ const Navbar = () => {
       href: "/franchise",
     },
   ];
+  const [logo, setLogo] = useState<string | null>(null);
+  useEffect(() => {
+    const fetchSettings = async () => {
+      const response = await getSettings();
+      if (response?.status) {
+        setLogo(response?.data?.site_logo);
+      }
+      else {
+        setLogo(null);
+      }
+    };
+    fetchSettings();
+  }, []);
   return (
     <motion.div
       initial={{ opacity: 0, y: -100 }}
@@ -43,7 +58,12 @@ const Navbar = () => {
     >
       <div className="container flex items-center justify-between">
         <Link href="/">
-          <Image src="/sky-limits-logo.png" alt="logo" width={100} height={100} />
+          <Image
+            src={logo || "/sky-limits-logo.png"}
+            alt="logo"
+            width={100}
+            height={100}
+          />
         </Link>
         <nav className="xl:flex hidden items-center gap-6">
           <ul className="flex items-center gap-6">

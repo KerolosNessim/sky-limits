@@ -52,7 +52,7 @@ function CopyBtn({ text }: { text: string }) {
             <Copy className="h-4 w-4 text-primary" />
           </Button>
         </TooltipTrigger>
-        <TooltipContent >{copied ? "Copied" : "Copy"}</TooltipContent>
+        <TooltipContent>{copied ? "Copied" : "Copy"}</TooltipContent>
       </Tooltip>
     </TooltipProvider>
   );
@@ -67,16 +67,11 @@ function ContactRow({ row }: { row: Row }) {
         <div className="text-body-lg">{row.title}</div>
         <div className="flex items-center ">
           {row.href ? (
-            <Link
-              href={row.href}
-              className="text-body-xl  text-primary"
-            >
+            <Link href={row.href} className="text-body-xl  text-primary">
               {row.value}
             </Link>
           ) : (
-            <span className="text-body-xl text-primary">
-              {row.value}
-            </span>
+            <span className="text-body-xl text-primary">{row.value}</span>
           )}
 
           {row.copyValue ? <CopyBtn text={row.copyValue} /> : null}
@@ -89,34 +84,75 @@ function ContactRow({ row }: { row: Row }) {
   );
 }
 
-export function ContactCard() {
+interface SocialMediaSettings {
+  facebook?: string;
+  twitter?: string;
+  instagram?: string;
+  linkedin?: string;
+  tiktok?: string;
+  telegram?: string;
+}
+
+interface SiteSettings {
+  site_email?: string;
+  site_phone?: string;
+  whatsapp?: string;
+  site_address?: string;
+  social_media?: SocialMediaSettings;
+}
+
+export function ContactCard({ settings }: { settings: SiteSettings | null }) {
   const rows: Row[] = [
     {
       icon: <Phone className="h-5 w-5" />,
       title: "Phone",
-      value: "9200343222",
-      copyValue: "9200343222",
+      value: settings?.site_phone || "9200343222",
+      copyValue: settings?.site_phone,
     },
     {
       icon: <MessageCircle className="h-5 w-5" />,
-      title: "SMS",
-      value: "199099",
-      copyValue: "199099",
+      title: "WhatsApp",
+      value: settings?.whatsapp || "9200343222",
+      copyValue: settings?.whatsapp,
+      href: settings?.whatsapp
+        ? `https://wa.me/${settings.whatsapp}`
+        : undefined,
     },
     {
       icon: <Mail className="h-5 w-5" />,
       title: "Email",
-      value: "help@company.sa",
-      copyValue: "help@company.sa",
+      value: settings?.site_email || "help@company.sa",
+      copyValue: settings?.site_email,
+      href: settings?.site_email ? `mailto:${settings.site_email}` : undefined,
     },
     {
       icon: <MapPin className="h-5 w-5" />,
       title: "Location",
-      value: "Riyadh",
-      href: "https://www.google.com/maps/search/?api=1&query=Riyadh",
+      value: settings?.site_address || "Riyadh",
+      href: settings?.site_address
+        ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(settings.site_address)}`
+        : undefined,
       rightIcon: <Link2 className="h-4 w-4" />,
     },
   ];
+
+  const socialLinks = [
+    {
+      icon: FaTwitter,
+      href: settings?.social_media?.twitter,
+      label: "Twitter",
+    },
+    {
+      icon: FaLinkedinIn,
+      href: settings?.social_media?.linkedin,
+      label: "LinkedIn",
+    },
+    {
+      icon: FaInstagram,
+      href: settings?.social_media?.instagram,
+      label: "Instagram",
+    },
+  ].filter((link) => link.href);
 
   return (
     <Card className="w-full rounded-2xl border bg-white shadow-sm">
@@ -129,38 +165,25 @@ export function ContactCard() {
           ))}
         </div>
 
-        <div className="mt-4">
-          <h4 className="text-body-xl">Follow us</h4>
+        {socialLinks.length > 0 && (
+          <div className="mt-4">
+            <h4 className="text-body-xl">Follow us</h4>
 
-          <div className=" flex items-center gap-6 text-muted-foreground">
-            {/* X */}
-            <Link
-              href="#"
-              className="hover:text-primary transition-colors"
-              aria-label="X"
-            >
-              <FaTwitter className="h-5 w-5"/>
-            </Link>
-
-            {/* LinkedIn */}
-            <Link
-              href="#"
-              className="hover:text-primary transition-colors"
-              aria-label="LinkedIn"
-            >
-              <FaLinkedinIn className="h-5 w-5"/>
-            </Link>
-
-            {/* Instagram */}
-            <Link
-              href="#"
-              className="hover:text-primary transition-colors"
-              aria-label="Instagram"
-            >
-              <FaInstagram className="h-5 w-5"/>
-            </Link>
+            <div className=" flex items-center gap-6 text-muted-foreground mt-2">
+              {socialLinks.map((social, index) => (
+                <Link
+                  key={index}
+                  href={social.href!}
+                  target="_blank"
+                  className="hover:text-primary transition-colors"
+                  aria-label={social.label}
+                >
+                  <social.icon className="h-5 w-5" />
+                </Link>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </CardContent>
     </Card>
   );

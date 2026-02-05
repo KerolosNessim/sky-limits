@@ -10,7 +10,8 @@ import {
 } from "@/components/ui/carousel";
 import TeamCard from "./team-card";
 import Autoplay from "embla-carousel-autoplay";
-const TeamSlider = () => {
+import { TeamMember } from "@/types/home";
+const TeamSlider = ({ teamMembers }: { teamMembers: TeamMember[] }) => {
   const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);
   const [count, setCount] = React.useState(0);
@@ -39,12 +40,12 @@ const TeamSlider = () => {
         className="w-full "
       >
         <CarouselContent>
-          {Array.from({ length: 5 }).map((_, index) => (
+          {teamMembers.map((member, index) => (
             <CarouselItem
               key={index}
               className="lg:basis-1/4 md:basis-1/2 basis-[80%]"
             >
-              <TeamCard key={index} />
+              <TeamCard member={member} key={index} />
             </CarouselItem>
           ))}
         </CarouselContent>

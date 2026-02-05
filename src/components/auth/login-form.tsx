@@ -1,24 +1,27 @@
 "use client";
 
-import * as React from "react";
-import { useTranslations } from "next-intl";
-import { z } from "zod";
-import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useTranslations } from "next-intl";
+import * as React from "react";
+import { useForm } from "react-hook-form";
+import { toast } from "sonner";
+import { z } from "zod";
 
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { login } from "@/api/auth";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Building2 } from "lucide-react";
-import { Link } from "@/i18n/navigation";
+import { useUser } from "@/context/user";
+import { Link, useRouter } from "@/i18n/navigation";
+import { Building2, Loader2 } from "lucide-react";
 
 const MIN_PASSWORD = 6;
 
 export default function LoginForm() {
-    const inputClassName =
-      "h-11 bg-input-bg focus-visible:ring-primary/50 border-0";
+  const inputClassName =
+    "h-11 bg-input-bg focus-visible:ring-primary/50 border-0";
   const t = useTranslations("signIn");
 
   const schema = React.useMemo(() => {
@@ -42,14 +45,28 @@ export default function LoginForm() {
     defaultValues: { email: "", password: "", remember: false },
   });
 
-  const onSubmit = (values: FormValues) => {
-    console.log(values);
+  const { login: loginContext } = useUser();
+  const router = useRouter();
+
+  const onSubmit = async (values: FormValues) => {
+    const data = {
+      email: values.email,
+      password: values.password,
+    };
+    const res = await login(data);
+    if (res.status) {
+      await loginContext(res.data);
+      toast.success(res.message);
+      router.push("/");
+    } else {
+      toast.error(res.message);
+    }
   };
 
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
     watch,
     setValue,
   } = form;
@@ -124,8 +141,16 @@ export default function LoginForm() {
             </div>
 
             {/* Submit */}
-            <Button type="submit" className="h-11 w-full rounded-xl">
-              {t("submit")}
+            <Button
+              type="submit"
+              className="w-full h-12 text-lg rounded-xl"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? (
+                <Loader2 className=" animate-spin" />
+              ) : (
+                t("submit")
+              )}
             </Button>
 
             {/* Footer */}

@@ -1,18 +1,17 @@
-import React from 'react'
+import { ProjectItem } from '@/types/home';
 import { Badge } from '../ui/badge';
-import { useTranslations } from 'next-intl';
 type Props = {
-    number: number;
+  number: number;
+  project: ProjectItem;
 }
-const ProjectCard = ({ number }: Props) => {
-  const t = useTranslations("projectSection.card");
+const ProjectCard = ({ number, project }: Props) => {
   return (
     <div className="bg-white rounded-xl p-6 space-y-4">
       <h3 className="text-h4 text-natural-darker">{number<10 ? `0${number}` : number}</h3>
-      <Badge className="text-body-md bg-secondary text-white">{t("badge")}</Badge>
+      <Badge className="text-body-md bg-secondary text-white">{project?.caption}</Badge>
       <div>
-        <h2 className="text-h4">{t("title")}</h2>
-        <p className="text-body-xl ">{t("description")}</p>
+        <h2 className="text-h4">{project?.title}</h2>
+        <p className="text-body-xl ">{project?.description}</p>
       </div>
     </div>
   );
