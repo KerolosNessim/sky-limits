@@ -9,9 +9,7 @@ import lgThumbnail from "lightgallery/plugins/thumbnail";
 import lgZoom from "lightgallery/plugins/zoom";
 import Image from "next/image";
 
-export default function Gallery() {
-  const images = Array.from({ length: 5 }).map(() => "/gallery.png");
-
+export default function Gallery({ images }: { images: string[] }) {
   return (
     <div className="w-full">
       <LightGallery

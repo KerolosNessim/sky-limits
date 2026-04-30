@@ -6,6 +6,7 @@ const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
 const brandsApi = {
   brandsPage: `${baseUrl}/brand-page`,
+  brandDetails: `${baseUrl}/home/brand-details`,
 }
 
 async function getHeaders(){
@@ -27,6 +28,22 @@ export async function getBrandsPage(){
         return data;
     } catch (error) {
         console.error("Error fetching brands page:", error);
+        return null;
+    }
+}
+
+export async function getBrandById(id: string){
+    try {
+        const response = await fetch(`${brandsApi.brandDetails}/${id}`, {
+            headers: await getHeaders(),
+        });
+        if (!response.ok) {
+            throw new Error("Failed to fetch brand by id");
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("Error fetching brand by id:", error);
         return null;
     }
 }

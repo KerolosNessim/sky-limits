@@ -21,9 +21,36 @@ type Props = {
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
 };
+
+export async function generateMetadata(): Promise<Metadata> {
+  const res = await getSettings();
+  const settings = res?.status ? res.data : null;
+
+  return {
+    title: {
+      template: `%s | ${settings?.site_name || "Sky Limits"}`,
+      default: settings?.site_name || "Sky Limits",
+    },
+    description: settings?.site_description || "Sky Limits description",
+    icons: {
+      icon: settings?.site_favicon || "/sky-limits-logo.png",
+      shortcut: settings?.site_favicon || "/sky-limits-logo.png",
+      apple: settings?.site_favicon || "/sky-limits-logo.png",
+    },
+    openGraph: {
+      title: settings?.site_name || "Sky Limits",
+      description: settings?.site_description || "Sky Limits description",
+      images: settings?.site_logo
+        ? [settings.site_logo]
+        : ["/sky-limits-logo.png"],
+    },
+  };
+}
+
 export default async function RootLayout({ children, params }: Props) {
   const res = await getSettings();
   const settings = res?.status ? res.data : null;
+
   // Ensure that the incoming `locale` is valid
   const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) {
