@@ -29,7 +29,7 @@ const BrandCard = ({ brand }: { brand: BrandItem }) => {
       <p className=" text-primary-light-active">{brand?.description}</p>
       {/* link */}
       <Link
-        href={"/brands/1"}
+        href={`/brands/${brand?.id}`}
         className=" text-base h-10 w-fit px-2 flex items-center  gap-1 text-white hover:text-text hover:bg-white  transition-all duration-300 ease-in-out"
       >
         {t("link")} <MdArrowOutward className="rtl:rotate-y-180" />
